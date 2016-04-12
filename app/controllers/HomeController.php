@@ -14,10 +14,34 @@ class HomeController extends BaseController {
 	|	Route::get('/', 'HomeController@showWelcome');
 	|
 	*/
-
+	
 	public function showWelcome()
 	{
 		return View::make('hello');
 	}
 
+	public function showPortfolio()
+	{
+		return View::make('portfolio');
+	}
+
+	public function showResume()
+	{
+		return View::make('resume');
+	}
+
+	public function rollDice($guess = null)
+	{
+		$rand_num = mt_rand(1,6);
+
+		$data = [
+			'rand_num' => $rand_num,
+			'guess' => $guess,
+
+		];
+
+		return View::make('roll-dice')->with($data);
+		
+
+	}
 }

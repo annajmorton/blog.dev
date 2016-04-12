@@ -16,27 +16,11 @@ Route::get('/', function()
 	return 'my blood hurts';
 });
 
-Route::get('/resume', function()
-{
-	return 'this is my resume';
-});
+Route::get('/resume', 'HomeController@showResume');
 
-Route::get('/portfolio', function()
-{
-	return 'this is my portfolio';	
-});
+Route::get('/portfolio', 'HomeController@showPortfolio');
 
+Route::get('/rolldice/{guess?}', 'HomeController@rollDice');
 
-Route::get('/rolldice/{guess?}', function($guess = null)
-{
-	$rand_num = mt_rand(1,6);
+Route::get('/', 'HomeController@showWelcome');
 
-	$data = [
-		'rand_num' => $rand_num,
-		'guess' => $guess,
-
-	];
-	return View::make('roll-dice')->with($data);
-	
-
-});
