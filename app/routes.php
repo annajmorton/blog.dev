@@ -17,10 +17,11 @@ Route::get('/', function()
 });
 
 Route::get('/resume', 'HomeController@showResume');
-
 Route::get('/portfolio', 'HomeController@showPortfolio');
-
 Route::get('/rolldice/{guess?}', 'HomeController@rollDice');
-
 Route::get('/', 'HomeController@showWelcome');
+Route::get('/simon', 'HomeController@showSimon');
+Route::get('/whackamole', 'HomeController@showWhack');
+Route::resource('posts','PostsController');
+Route::get('/form','HomeController@form');
 

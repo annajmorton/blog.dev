@@ -44,4 +44,15 @@ class HomeController extends BaseController {
 		
 
 	}
+
+	public function showSimon()
+	{
+		return View::make('simon_index');
+	}
+
+	public function showWhack()
+	{
+		return View::make('whack_index');
+	}
+
 }

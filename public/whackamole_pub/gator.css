@@ -1,0 +1,284 @@
+.gamE{
+
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	justify-content: center;
+	background-color: #660000;
+
+}
+#heading{
+
+	display: flex;
+	flex-wrap: wrap;
+	width: 600px;
+	align-content: flex-start;
+	background: -webkit-linear-gradient(#00ffff, #ffffff);
+	margin-top: 1%;
+	border-top: groove green 8px;
+	border-left: groove green 8px;
+	border-right: groove green 8px;
+
+}
+h1{
+
+	color: #ff6600;
+	text-decoration: bold;
+	align-self: flex-start;
+	margin-top: 0.1em;
+	margin-bottom:0.5em;
+	margin-left: 0.1em;
+	font-family: 'Luckiest Guy', cursive;
+	font-size: 4em;
+	text-shadow: 2px 2px #ff0000;
+
+
+
+}
+.scoreBord {
+
+	display: flex;
+	flex-wrap: wrap;
+	color: black;
+	justify-content: center;
+	width:600px; 
+	height:50px;
+	font-size: 1.25em;
+	background-color: green;
+	border-left: groove green 8px;
+	border-right: groove green 8px;
+
+}
+input {
+
+	background-color: black;
+	color: #ff0080;
+	text-align: center;
+	width: 10%;
+	border: none;
+	margin-right: 1%;
+	margin-left: 0.5%;
+	text-decoration: bold;
+	align-self: center;
+	font-family: 'Press Start 2P', cursive;
+	border: white solid 1px;
+
+}
+label {
+
+	margin-left: 0.5%;
+	align-self: center;
+	font-family: 'Luckiest Guy', cursive;
+
+}
+
+.MessageBoard {
+
+	display: flex;
+	width:600px; 
+	height:65px;
+	font-size: 1em;
+	justify-content: center;
+	position: relative;
+	background-color: green;
+	border-left: groove green 8px;
+	border-right: groove green 8px;
+	border-bottom: groove green 8px;
+
+}
+.msgWindow{
+
+	color: #ff0080;
+	text-decoration: bold;
+	background-color: black;
+	width:90%; 
+	height:80%;
+	text-align: center;
+	padding-bottom: 5px;
+	border: white solid 1px;
+}
+span.UserMessage{
+
+	font-family: 'Press Start 2P', cursive;
+	font-size: 2.5em;
+}
+.baYoo {
+
+	display: flex;
+	flex-wrap: wrap;
+	color: green;
+	width:600px; 
+	height:200px;
+	align-items: flex-start;
+	border-left: groove green 8px;
+	border-right: groove green 8px;
+	border-top: solid #6e512b 10px;
+	border-bottom: groove #d2b48c 10px;
+
+
+}
+#hideout {
+	height: 8%;
+	width: 583px;
+	background-color: #d2b48c;
+	position: absolute;
+	z-index: 2;
+	float: center;
+	
+
+}
+.oL{
+
+	height:100%;
+	width:20%;
+	background-color: #bf935a;
+	display: flex;
+	justify-content: space-between;
+
+}
+.obumper{
+
+	background-color: #c69f6c;
+	height: 80%;
+	width: 20%;
+	display: flex;
+	border-radius: 0.75em;
+	border: 5px #6e512b;
+	
+
+}
+.ibumper{
+	background-color: #cdab7e;
+	height: 80%;
+	width: 100%;
+	border-radius: 0.75em;
+	border: 5px #6e512b;
+	
+}
+.gAtor{
+
+	display: flex;
+	height:50%;
+	width:40%;
+	background-color: #00b300;
+	position: relative;
+	border-radius: 1em;
+	justify-content:center;
+	flex-wrap: wrap;
+
+}
+.eyeB {
+
+	display: flex;
+	background-color: white;
+	height: 30%;
+	width: 30%;
+	border-radius: 50%;
+	margin-top: 10%;
+	justify-content:center;
+
+}
+.eyeP {
+
+	display: flex;
+	background-color: black;
+	height: 30%;
+	width: 30%;
+	border-radius: 50%;
+	margin-top: 10%;
+	align-self: center;
+}
+.noseA {
+
+	display: flex;
+	background-color: none;
+	border-top: solid 1px;
+	border-bottom: solid 1px;
+	border-color: #99ff99;
+	height: 25%;
+	width: 100%;
+	border-radius: 0.25em;
+	margin-top: 5%;
+	align-self: center;
+	box-shadow: 0px 3px 1px #888888;
+
+}
+.noseB {
+
+	display: flex;
+	background-color: none;
+	border-top: solid 1px;
+	border-bottom: solid 1px;
+	border-color: #99ff99;
+	height: 15%;
+	width: 15%;
+	border-radius: 50%;
+	margin-left: 20%;
+	margin-top: 5%;
+	box-shadow: 0px 3px 1px #888888;
+
+
+}
+.weyeB {
+  background: red;
+  height: 100px;
+  position: relative;
+  width: 20px;
+}
+.weyeB {
+  background: red;
+  content: "";
+  height: 20px;
+  left: -40px;
+  position: absolute;
+  top: 40px;
+  width: 100px;
+}
+.buttonBarrel{
+
+	display: flex;
+	flex-wrap: wrap;
+	width: 600px;
+	height: 600px;
+	justify-content: center;
+	background-color: #000099;
+	border-left: groove #000099 8px;
+	border-right: groove #000099 8px;
+	border-top: groove #4d4dff 10px;
+}
+button{
+	display: flex;
+	/*flex-wrap: wrap;
+	flex-direction: column;*/
+	margin-top: 20px;
+	background-color: #803300;
+	color: white;
+	font-size: 1em;
+	width:12%;
+	height: 18%;
+	text-align: right;
+	text-shadow: 2px 2px #ff0000;
+	font-family: 'Montserrat', sans-serif;
+}.flashbutton{
+
+	background-color:#ff6600; 
+
+}.flashhead{
+
+	color:#ff8533; 
+}
+.slot{
+
+	background-color: black;
+	border: solid 0.2em white; 
+	width: 0.5em;
+	height: 7em;
+	box-shadow: 2px 2px 1px #ff0000;
+}
+span.button{
+
+	font-size: 1.9em;
+	text-decoration: underline;
+}
+
+
