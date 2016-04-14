@@ -9,9 +9,8 @@ class PostsController extends \BaseController {
 	 */
 	public function index()
 	{
-		$allPosts = Post::all();
-		return View::make('posts.index')->with('allPosts',Post::all());
-		// return View::make('posts.index')->with('allPosts',$allPosts);
+		$allPosts = Post::paginate(4);
+		return View::make('posts.index')->with('allPosts',$allPosts);
 		// return Post::all(); this returns a jason!
 	}
 
@@ -24,6 +23,7 @@ class PostsController extends \BaseController {
 	public function create()
 	{
 		return View::make('posts.create');
+
 	}
 
 
@@ -34,8 +34,8 @@ class PostsController extends \BaseController {
 	 */
 	public function store()
 	{
-		// return Redirect::action('PostsController@create')->withInput();
-		return View::make('posts.create');
+		$post = new Post();
+	 	return $this->saveToDB($post); 
 	}
 
 
@@ -47,7 +47,8 @@ class PostsController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		return "here is my show with $id";
+		$post = Post::find($id);
+		return View::make('posts.show')->with('post',$post);
 	}
 
 
@@ -59,7 +60,13 @@ class PostsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		return "here is my edit with $id";
+		$post = Post::find($id);
+		$args = [
+			'id' => $id,
+			'post' => $post
+		];
+		// return Redirect::action('PostsController@create')->with('id',$id);
+		return View::make('posts.create')->with($args);
 	}
 
 
@@ -70,8 +77,9 @@ class PostsController extends \BaseController {
 	 * @return Response
 	 */
 	public function update($id)
-	{
-		return "here is my update with $id";
+	{	
+		$post = Post::find($id);
+		return $this->saveToDB($post); 
 	}
 
 
@@ -83,7 +91,29 @@ class PostsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		return "here is my destroy with $id";
+		$post = Post::find($id); 
+		if ($post) {
+			$post->delete();
+		}
+		return Redirect::action('PostsController@index');
+	}
+
+	private function saveToDB($post) 
+	{
+		$validator = Validator::make(Input::all(), Post::$rules);
+
+	    
+	    if ($validator->fails()) {
+	        
+	        return Redirect::back()->withInput()->withErrors($validator);
+
+	    }
+
+	    $post->title = Input::get('title');
+		$post->body = Input::get('body');
+		$post->save();
+	 
+		return Redirect::action('PostsController@index'); 
 	}
 
 

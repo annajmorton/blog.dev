@@ -1,0 +1,126 @@
+
+/*AM'S STYLES - I AM USING SOME SERIOUS FLEXBOX*/
+
+/*ALL DISPLAYED PAGE ITEMS SHOULD BE INSIDE THIS ID TO FLEX IT*/
+#pageBuckett{
+
+	padding-top: 7rem;
+
+	display: flex;
+	justify-content:space-around;
+	align-content:space-around;
+	flex-wrap:wrap;
+
+	/*define site font family here...*/
+	/*font-family: */
+}
+
+/*ADD THIS CLASS FOR SOME STANDARD FLEX*/
+.flex{
+
+	display: flex;
+	justify-content:center;
+	width: 90%;
+}
+
+
+
+/*STANDARD ITEMS FOR A WEBSITE*/
+
+#AMnavBar{
+
+/*	display: none;*/
+	width: 100%;
+	height: 4rem;
+	padding-left: 2%;
+	padding-top: 1%;
+	/*position: fixed;*/
+	left: 0;
+	top: 0;
+
+	/*add style*/
+	display: flex;
+	flex-wrap: wrap;
+	/*align-items: center;*/
+	background-color: #334d00;
+}
+
+.hidden{
+
+	display: none;
+}
+
+#site_title,h2 {
+
+	width: 100%;
+	margin-top: 0;
+	margin-bottom: 0;
+	color: #ccff66;
+}
+#page_select{
+
+	width: 100%;
+	display: flex;
+	flex-wrap:nowrap;
+}
+.or {
+	margin-top: 0;
+	margin-bottom: 0;
+	padding-left: 1em;
+	padding-right: 1em;
+	color: #ccff66;
+}
+#AMnavBar input {
+
+	text-align: center;
+	width: 10em;
+	background-color: #ccff66;
+	border-color:#ccff66;
+}
+#AMnavBar button, select {
+
+	background-color: #ccff66;
+	border: none;
+}
+
+#hat img {
+
+	width:20%;
+	height: 20%;
+	
+}
+
+#AMfooter{
+
+	width: 100%;
+	height: 2rem;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+
+	/*add style*/
+	display: flex;
+	align-items: center;
+	background-color: #334d00;
+	color: #ccff66;
+
+	/*add style*/
+}
+
+/*PAGE SPECIFIC FILES SHOULD BE IN DEDICATED SYTLE FILE*/
+
+body {
+
+	background-color: #e6ffb3;
+	font-family: 'EB Garamond', serif;
+
+}
+.park_details h4 {
+	margin-top: 0;
+	margin-bottom: 0.25em;
+}
+
+.parks {
+	padding-left:1%; 
+	padding-right:1%;
+}

@@ -5,6 +5,8 @@
 </head>
 <body>
 	@yield('content')
-	@yield('script')
+	
+	@yield('script')	
+
 </body>
 </html>

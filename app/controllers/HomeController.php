@@ -55,4 +55,8 @@ class HomeController extends BaseController {
 		return View::make('whack_index');
 	}
 
+	public function showParks()
+	{
+		return View::make('national_parks');
+	}
 }

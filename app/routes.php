@@ -16,12 +16,16 @@ Route::get('/', function()
 	return 'my blood hurts';
 });
 
+Route::resource('posts','PostsController');
 Route::get('/resume', 'HomeController@showResume');
 Route::get('/portfolio', 'HomeController@showPortfolio');
 Route::get('/rolldice/{guess?}', 'HomeController@rollDice');
 Route::get('/', 'HomeController@showWelcome');
 Route::get('/simon', 'HomeController@showSimon');
 Route::get('/whackamole', 'HomeController@showWhack');
-Route::resource('posts','PostsController');
-Route::get('/form','HomeController@form');
+Route::get('/parks','HomeController@showParks');
+
+// Route::get('/ajax/test', function() {
+// 	return 'hello'
+// });
 
