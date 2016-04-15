@@ -79,3 +79,17 @@ App::down(function()
 */
 
 require app_path().'/filters.php';
+/*
+|--------------------------------------------------------------------------
+| Default 404 page
+|--------------------------------------------------------------------------
+| sends to this page
+|
+*/
+
+App::missing(function($exception)
+{
+    return Response::view('errors.badurl', array(), 404);
+});
+
+

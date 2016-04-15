@@ -1,0 +1,90 @@
+
+body{
+
+	font-family: 'Sue Ellen Francisco', cursive;
+	color: floralwhite;
+
+	background-image: url(/img/hand_feather.jpg); 
+	background-size: cover;
+	background-repeat: no-repeat;
+	
+}
+
+
+
+.masthead-brand{
+	font-size: 400%; 
+	/*font-family: 'Caesar Dressing', cursive;*/
+	float: left;
+	display: block;
+	padding-top: 20px;
+
+
+}
+
+.masthead-nav{
+	/*font-size: 200%;
+	font-family: 'Caesar Dressing', cursive;
+	color: floralwhite;*/
+	/*float: left;*/	
+	clear: left;
+}
+
+
+.masthead-nav li {
+	display: block;
+	
+	
+}
+
+
+
+
+/*this is all the modal junk - leave it alone*/
+
+.modal-header{
+
+	float: left;
+	color: #331900;
+	text-decoration: bold;
+
+}
+
+
+.modal-body{
+
+	clear: left;
+	color: #331900;
+}
+
+
+.modal.fade{
+
+	/*background-color: papayawhip;*/
+}
+
+.modal-content{
+
+	background-image: url(/img/graph_paper_by_rawen713.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+
+}
+
+
+.modal-content button{
+
+	background-color: transparent;
+	border-color: #331900;
+
+}
+
+
+.btn.btn-lg.btn-default{
+
+	color: #331a00;
+	background-color: 
+	background-color: #fff3e5;
+	border-color: #331a00;
+
+}

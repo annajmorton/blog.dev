@@ -47,8 +47,12 @@ class PostsController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		$post = Post::find($id);
-		return View::make('posts.show')->with('post',$post);
+		$post = $this->findcheckpost($id);
+
+		$pass = [
+			'post' => $post
+		];
+		return View::make('posts.show')->with($pass);
 	}
 
 
@@ -60,12 +64,12 @@ class PostsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		$post = Post::find($id);
+		
+		$post = $this->findcheckpost($id);
 		$args = [
 			'id' => $id,
 			'post' => $post
 		];
-		// return Redirect::action('PostsController@create')->with('id',$id);
 		return View::make('posts.create')->with($args);
 	}
 
@@ -91,29 +95,51 @@ class PostsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		$post = Post::find($id); 
+		$post = Post::find($id);
+		$name = $post->title;
+
 		if ($post) {
 			$post->delete();
+			Session::flash('successMessage', "$name is sucessfully removed from all memory!");
+			
+		} else {
+			Session::flash('errorMessage', "Something happened - $name is still here!");
 		}
+
 		return Redirect::action('PostsController@index');
 	}
 
 	private function saveToDB($post) 
 	{
 		$validator = Validator::make(Input::all(), Post::$rules);
-
-	    
+	    $post->title = Input::get('title');
+		$post->body = Input::get('body');
+		
+			
+	    Log::info("HEY BABY! I\'ve sent the following to the db: $post->title and $post->body");
 	    if ($validator->fails()) {
-	        
+
+	        Session::flash('errorMessage', "uh oh! we weren't able to save <em><strong>$post->title</strong></em>");
 	        return Redirect::back()->withInput()->withErrors($validator);
 
 	    }
 
-	    $post->title = Input::get('title');
-		$post->body = Input::get('body');
 		$post->save();
-	 
+	 	Session::flash('successMessage', "Your day has come! <em><strong>$post->title</strong></em> is sucessfully saved");
+
 		return Redirect::action('PostsController@index'); 
+	}
+
+	private function findcheckpost($id)
+	{
+		$post = Post::find($id);
+		
+		if (!$post) {
+			
+			App::abort(404);
+		}
+
+		return $post;
 	}
 
 

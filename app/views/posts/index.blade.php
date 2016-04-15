@@ -1,7 +1,3 @@
-<?php 
-	
-
-?>
 @extends('layouts.master')
 
 @section('content')
@@ -36,11 +32,10 @@
 	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script type="text/javascript">
 		"use strict"
-		$(document).on('click','button',function(event) {
+		$(document).on('click','.btn-danger',function(event) {
 
-			event.preventDefault();
-			console.log('working?');
-			confirm("are you sure you want to delte this post?");
+			var is_delete = confirm("are you sure you want to delte this post?");
+
 		});
 
 	</script>

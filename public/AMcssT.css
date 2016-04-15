@@ -1,0 +1,63 @@
+
+/*AM'S STYLES - I AM USING SOME SERIOUS FLEXBOX*/
+
+/*ALL DISPLAYED PAGE ITEMS SHOULD BE INSIDE THIS ID TO FLEX IT*/
+#pageBuckett{
+
+	display: flex;
+	justify-content:center;
+	flex-wrap:wrap;
+	/*define site font family here...*/
+	/*font-family: */
+}
+
+/*ADD THIS CLASS FOR SOME STANDARD FLEX*/
+.flex{
+
+	display: flex;
+	justify-content:center;
+	width: 90%;
+}
+
+
+
+/*STANDARD ITEMS FOR A WEBSITE*/
+#AMheader{
+	
+	margin-top: 1rem;
+}
+
+#AMnavBar{
+
+	width: 100%;
+	height: 2rem;
+	position: fixed;
+	left: 0;
+	top: 0;
+
+	/*add style*/
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: pink;
+}
+
+#AMfooter{
+
+	width: 100%;
+	height: 2rem;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+
+	/*add style*/
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: pink;
+
+	/*add style*/
+}
+
+/*PAGE SPECIFIC FILES SHOULD BE IN DEDICATED SYTLE FILE*/
+

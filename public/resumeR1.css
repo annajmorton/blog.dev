@@ -1,0 +1,101 @@
+
+body{
+
+	font-family: 'Sue Ellen Francisco', cursive;
+	color: floralwhite;
+
+	background-image: url(/img/hand_feather.jpg); 
+	background-size: cover;
+	background-repeat: no-repeat;
+	
+}
+
+
+
+.masthead-brand h1 {
+
+	font-size: 24px;
+	position: float;
+	margin: auto;
+	padding-top: 10%;
+	text-decoration: bold;
+
+}
+
+
+.nav .masthead-nav .nav-pills ul {
+
+	font-size: 12px;
+	position: float;
+	margin: auto;
+
+
+
+}
+
+
+.masthead-nav li a{
+
+	background-image: url(/img/granite-pebble-beach-close-up.jpg);
+	background-size: 20%;
+	border-radius: 50%;
+	border-width: 100px;
+	border-color: pink;
+	/*border-color: #331a00;*/
+	
+	color: #331a00;
+	font-size: 10%;
+	margin-left: 10px;  s
+	margin-right: 10px;
+
+}
+
+
+
+
+
+
+
+
+.modal-header{
+
+	float: left;
+	color: #331900;
+	text-decoration: bold;
+
+}
+
+
+.modal-body{
+
+	clear: left;
+	color: #331900;
+}
+
+
+
+.modal-content{
+
+	background-image: url(/img/graph_paper_by_rawen713.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+
+}
+
+
+.modal-content button{
+
+	background-color: transparent;
+	border-color: #331900;
+
+}
+
+
+.btn.btn-lg.btn-default{
+
+	color: #331a00;
+	background-color: 
+	background-color: #fff3e5;
+	border-color: #331a00;
+
+}
