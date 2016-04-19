@@ -3,15 +3,29 @@
 	<title>master</title>
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 	
-	@yield('style')
 	<style type="text/css">
 		.alert {
 
 			display: initial;
 		}
-	</style>
+		body {
 
+			padding-top: 70px;
+			font-family: 'Cuprum', sans-serif;
+		}
+		h5.navbar-text.navbar-right{
+
+			color: red;
+			font-family: 'Caesar Dressing', cursive;		
+		}
+	</style>
+	@yield('style')
+
+	{{-- <link href='https://fonts.googleapis.com/css?family=Sue+Ellen+Francisco' rel='stylesheet' type='text/css'> --}}
+	<link href='https://fonts.googleapis.com/css?family=Cuprum' rel='stylesheet' type='text/css'>
+  	<link href='https://fonts.googleapis.com/css?family=Caesar+Dressing' rel='stylesheet' type='text/css'>
 </head>
+
 <body>
 	
 	{{-- success and error messages --}}
@@ -23,8 +37,38 @@
 	@endif
 	{{-- end of success and error messages --}}
 
-	@yield('content')
-	
+
+
+	{{-- NAV BAR --}}
+	@section('navbar')
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="container-fluid">
+
+			
+
+
+				@yield('insert_nav')
+				@if (Auth::check())
+					<h5 class='navbar-text navbar-right' >{{{ "hi " . Auth::user()->first_name . "!" }}}</h5>
+					{{ Form::open(['action' => ['UsersController@logout'] , 'method'=>'GET']) }}
+						{{ Form::submit('logout',['class'=>'navbar-btn navbar-right btn btn-info']) }}
+					{{ Form::close() }}
+				@else 
+					{{ Form::open(['action' => ['UsersController@login'] , 'method'=>'GET']) }}
+						{{ Form::submit('login',['class'=>'navbar-btn navbar-right btn btn-info']) }}
+					{{ Form::close() }}
+				@endif 
+			
+			</div>
+		</nav>
+	@show
+	{{-- END NAV BAR --}}
+
+	<div class="container-fluid">
+		@yield('content')
+	</div>
+
+
 	@yield('script')
 
 	@if(Session::has('successMessage')||Session::has('errorMessage'))
@@ -33,16 +77,14 @@
 			(function() {
 			"use strict"
 
-				setTimeout(function(){
-
-					
+				setTimeout(function(){	
 					console.log('why am i here');
 					var alertmsg = document.getElementsByClassName("alert");
+					// alertmsg[0].hidden = 'true';
 					console.log(alertmsg);
-					alertmsg.style.display = 'none';
-					
+					alertmsg[0].style.display = 'none';
 
-				}, 800);
+				}, 1200);
 			})();
 
 		</script>	

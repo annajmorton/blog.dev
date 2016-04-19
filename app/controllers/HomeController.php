@@ -59,4 +59,14 @@ class HomeController extends BaseController {
 	{
 		return View::make('national_parks');
 	}
+
+	public function showCalc()
+	{
+		return View::make('Build_a_Calculator');
+	}
+
+	public function showPV()
+	{
+		return View::make('pv');
+	}
 }

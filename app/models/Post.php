@@ -22,4 +22,8 @@ class Post extends BaseModel
 	{
 		return $this->belongsTo('User');
 	}
+	// public static function searchPosts($query) 
+	// {
+	// 	return self::where('title', '=', "%$query%")->get(); 
+	// }
 }

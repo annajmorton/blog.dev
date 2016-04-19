@@ -16,6 +16,15 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 */
 	protected $table = 'users';
 
+	public static $rules = array(
+	    // 'first_name'      => 'required|max:100',
+	    // 'last_name'       => 'required|max:100',
+	    'email'      => 'required|email',
+	    'password'       => 'required|max:100'
+	    // 'profile_img'       => 'required|max:100',
+
+	);
+
 	/**
 	 * The attributes excluded from the model's JSON form.
 	 *
@@ -26,6 +35,11 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	public function posts()
 	{
 		return $this->hasMany('Post');
+	}
+
+	public function setPasswordAttribute($value)
+	{
+	    $this->attributes['password'] = Hash::make($value);
 	}
 
 }

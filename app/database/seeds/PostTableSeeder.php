@@ -4,7 +4,7 @@ class PostTableSeeder extends Seeder
 {
 
 	public function run()
-	{
+	{	
 		$post1 = new Post();
 		$post1->title = 'I left a good job in the city';
 		$post1->body = "roll'n on the river! what a choice. a good choice. enjoying the gift of watching aurora and azalea growup. putting them to sleep last night was an experience of devine grace.";
@@ -34,8 +34,6 @@ class PostTableSeeder extends Seeder
 		$post5->body = "delicious, locally roasted coffee. period.";
 		$post5->user_id = 1;
 		$post5->save();
-
-
 	}
 
 }

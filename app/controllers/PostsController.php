@@ -1,16 +1,36 @@
 <?php
 
-class PostsController extends \BaseController {
+class PostsController extends BaseController 
+{
 
 	/**
 	 * Display a listing of the resource.
 	 *
 	 * @return Response
 	 */
+
+	// public function beforefilter
+
+	
+	public function __construct()
+	{
+	    // allows only logged-in users to modify the db
+	    $this->beforeFilter('auth', array('except' => array('index', 'show')));
+	}
+
 	public function index()
 	{
-		$allPosts = Post::paginate(4);
-		return View::make('posts.index')->with('allPosts',$allPosts);
+		if (Input::has('query')) {	
+			$query = Input::get('query');
+			$posts = Post::with('User')->where('title', 'LIKE', "%$query%")->orWhere('body', 'LIKE', "%$query%")->get();
+		} else {
+
+			$posts = Post::with('User')->get();
+			// $allPosts = Post::with('User')->paginate(4);
+			
+		}
+
+		return View::make('posts.index')->with('allPosts',$posts);
 		// return Post::all(); this returns a jason!
 	}
 
@@ -124,6 +144,7 @@ class PostsController extends \BaseController {
 
 	    }
 
+	    $post->user_id = User::first()->id;
 		$post->save();
 	 	Session::flash('successMessage', "Your day has come! <em><strong>$post->title</strong></em> is sucessfully saved");
 
