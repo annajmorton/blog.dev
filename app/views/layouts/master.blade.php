@@ -19,15 +19,17 @@
 			font-family: 'Caesar Dressing', cursive;		
 		}
 	</style>
-	@yield('style')
 
 	{{-- <link href='https://fonts.googleapis.com/css?family=Sue+Ellen+Francisco' rel='stylesheet' type='text/css'> --}}
 	<link href='https://fonts.googleapis.com/css?family=Cuprum' rel='stylesheet' type='text/css'>
   	<link href='https://fonts.googleapis.com/css?family=Caesar+Dressing' rel='stylesheet' type='text/css'>
+
+	@yield('style')
+
 </head>
 
 <body>
-	
+
 	{{-- success and error messages --}}
 	@if (Session::has('successMessage'))
 	    <div class="alert alert-success">{{ Session::get('successMessage') }}</div>
@@ -63,6 +65,19 @@
 		</nav>
 	@show
 	{{-- END NAV BAR --}}
+
+	
+	{{-- stars start --}}
+	@section('twinkle_stars')
+		<div class="stars"></div>
+		<div class="twinkling">
+			<div class="twinkle_b">
+			@yield('twinkle_stars_content')
+			</div>
+		</div>
+	@show
+	{{-- stars stop --}}
+
 
 	<div class="container-fluid">
 		@yield('content')

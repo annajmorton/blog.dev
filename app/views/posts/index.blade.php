@@ -5,6 +5,12 @@
 ?>
 
 @extends('layouts.master')
+@section('style')
+	<link rel="stylesheet" type="text/css" href="/css/twinkle-stars.css">
+@stop
+@section('twinkle_stars')
+	@parent
+@stop
 
 @section('insert_nav')	
 	<form method="get" action="{{{ action('PostsController@index') }}}">
@@ -13,7 +19,7 @@
 @stop
 
 
-@section('content')
+@section('twinkle_stars_content')
 	<h1>All the Blogs</h1>
 	@foreach ($allPosts as $post)
 		
