@@ -22,16 +22,14 @@ class PostsController extends BaseController
 	{
 		if (Input::has('query')) {	
 			$query = Input::get('query');
-			$posts = Post::with('User')->where('title', 'LIKE', "%$query%")->orWhere('body', 'LIKE', "%$query%")->get();
+			$posts = Post::with('User')->orderBy('updated_at')->where('title', 'LIKE', "%$query%")->orWhere('body', 'LIKE', "%$query%")->get();
 		} else {
 
 			$posts = Post::with('User')->get();
-			// $allPosts = Post::with('User')->paginate(4);
 			
 		}
 
 		return View::make('posts.index')->with('allPosts',$posts);
-		// return Post::all(); this returns a jason!
 	}
 
 
@@ -84,7 +82,7 @@ class PostsController extends BaseController
 	 */
 	public function edit($id)
 	{
-		
+
 		$post = $this->findcheckpost($id);
 		$args = [
 			'id' => $id,
@@ -118,6 +116,21 @@ class PostsController extends BaseController
 		$post = Post::find($id);
 		$name = $post->title;
 
+		if ($post->image) {
+			dd(Input::get());
+			$file = public_path().$post->image_location.$post->image;
+
+			if (File::exists($file)) {
+				File::delete($file);
+				$post->image = null;
+			}
+			if (File::exists($file)) {
+				Session::flash('errorMessage', "The file was not delete");	
+			}
+
+			return Redirect::back()->withInput();
+
+		}
 		if ($post) {
 			$post->delete();
 			Session::flash('successMessage', "$name is sucessfully removed from all memory!");
@@ -129,11 +142,13 @@ class PostsController extends BaseController
 		return Redirect::action('PostsController@index');
 	}
 
+
 	private function saveToDB($post) 
 	{
 		$validator = Validator::make(Input::all(), Post::$rules);
 	    $post->title = Input::get('title');
 		$post->body = Input::get('body');
+		
 		
 			
 	    Log::info("HEY BABY! I\'ve sent the following to the db: $post->title and $post->body");
@@ -143,11 +158,38 @@ class PostsController extends BaseController
 	        return Redirect::back()->withInput()->withErrors($validator);
 
 	    }
+	    if(Input::hasFile('image')){
+	  
+	    	$files = Input::file('image');
+	    	$arr = [];
+
+			foreach ($files as $file) {
+		    	if (!$file->isValid()) {
+			    	Session::flash('errorMessage', "file is not valid! we did not save the entry");
+			    	return Redirect::back()->withInput()->withErrors($validator);
+		    	}
+				$filename = uniqid();
+				$filetype = $file->getMimeType();
+				$filename = $filename . '.' . explode('/',$filetype)[1];
+				$file->move(public_path().$post->image_location,$filename);
+				array_push($arr,$filename);
+			}	
+
+			$post->image = $arr;
+	    } 
+
+		// if ($post->image) { 
+		// 	foreach ($post->image as &$file) {
+		//     	$file = public_path().$post->image_location.$post->image;
+		// 	    if (!File::exists($file)) {
+		// 			$file = null;
+		// 	    }
+		// 	}
+		// }
 
 	    $post->user_id = User::first()->id;
 		$post->save();
 	 	Session::flash('successMessage', "Your day has come! <em><strong>$post->title</strong></em> is sucessfully saved");
-
 		return Redirect::action('PostsController@index'); 
 	}
 

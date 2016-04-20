@@ -1,5 +1,7 @@
 <html>
 <head>
+	  <!-- Add CSRF Token as a meta tag in your head for Angular JS -->
+    <meta name="csrf-token" content="{{{ csrf_token() }}}">
 	<title>master</title>
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 	
@@ -45,15 +47,26 @@
 	@section('navbar')
 		<nav class="navbar navbar-default navbar-fixed-top">
 			<div class="container-fluid">
-
-			
-
-
 				@yield('insert_nav')
+
+				<button type="button" class="navbar-btn navbar-right btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				    Action <span class="caret"></span>
+				</button>
+		          <ul class="dropdown-menu">
+		            {{-- <li><a href="{{ action('HomeController@showWelcome') }}">Action</a></li> --}}
+		            <li><a href="#">Another action</a></li>
+		            <li><a href="#">Something else here</a></li>
+		            <li role="separator" class="divider"></li>
+		            <li><a href="#">Separated link</a></li>
+		            <li role="separator" class="divider"></li>
+		            <li><a href="#">One more separated link</a></li>
+		          </ul>
+		       	</span></a>
+
+
 				@if (Auth::check())
-					<h5 class='navbar-text navbar-right' >{{{ "hi " . Auth::user()->first_name . "!" }}}</h5>
 					{{ Form::open(['action' => ['UsersController@logout'] , 'method'=>'GET']) }}
-						{{ Form::submit('logout',['class'=>'navbar-btn navbar-right btn btn-info']) }}
+						{{ Form::submit("logout ".Auth::user()->first_name,['class'=>'navbar-btn navbar-right btn btn-info']) }}
 					{{ Form::close() }}
 				@else 
 					{{ Form::open(['action' => ['UsersController@login'] , 'method'=>'GET']) }}
@@ -66,23 +79,10 @@
 	@show
 	{{-- END NAV BAR --}}
 
-	
-	{{-- stars start --}}
-	@section('twinkle_stars')
-		<div class="stars"></div>
-		<div class="twinkling">
-			<div class="twinkle_b">
-			@yield('twinkle_stars_content')
-			</div>
-		</div>
-	@show
-	{{-- stars stop --}}
-
 
 	<div class="container-fluid">
 		@yield('content')
 	</div>
-
 
 	@yield('script')
 
@@ -99,7 +99,7 @@
 					console.log(alertmsg);
 					alertmsg[0].style.display = 'none';
 
-				}, 1200);
+				}, 2000);
 			})();
 
 		</script>	

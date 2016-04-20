@@ -16,7 +16,7 @@ Route::get('/', function()
 	return 'my blood hurts';
 });
 
-Route::resource('posts','PostsController');
+Route::resource('/posts','PostsController');
 Route::get('/resume', 'HomeController@showResume');
 Route::get('/portfolio', 'HomeController@showPortfolio');
 Route::get('/rolldice/{guess?}', 'HomeController@rollDice');
