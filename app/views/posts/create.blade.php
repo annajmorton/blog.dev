@@ -1,5 +1,5 @@
 <?php  
-// var_dump($id);	
+// var_dump($);	
 
 ?>
 
@@ -20,7 +20,7 @@
 	@if(isset($id))
 		{{ Form::model($post, ['action' => ['PostsController@update', $post->id] , 'method' => 'PUT', 'files' => true]) }}
 	@else
-		{{ Form::open(['action' => 'PostsController@store', 'files' => true]) }}
+		{{ Form::open(['action' => 'PostsController@store', 'method' => 'POST' ,'files' => true]) }}
 	@endif
 	{{ Form::text('title', null ,['placeholder' =>"new blog post title"])}}
 	{{$errors->first('title','<p>:message</p>') }}
@@ -34,7 +34,7 @@
 	{{ Form::submit('save') }}
 	{{ Form::close() }}
 
-	@if($post->image)
+	@if(isset($post)&&$post->image)
 		
 		<table>
 			<tr>
@@ -42,13 +42,15 @@
 				<th>action</th>
 			</tr>
 			@foreach($post->image as $key=>$image)
+				@if(File::exists(public_path().$post->image_location.$image))
 				<tr>
 					<td>{{ $post->showImg($image) }}</td>
-					{{ Form::open(['action' => ['PostsController@destroy', $post->id] , 'method'=>'DELETE']) }}
-						{{ Form::text('img_num',null,['hidden','value'=> $key]) }}
-						<td>{{ Form::submit('delete image',['class'=>'btn btn-danger','name'=>'delete', 'value'=>'d1']) }}</td>
+					{{ Form::open(['action' => ['PostsController@update', $post->id],'method'=>'PUT','files' => true]) }}
+						{{ Form::text('img_num',$key,['value'=> $key]) }}
+						<td>{{ Form::submit('delete image',['class'=>'btn btn-danger','name'=>'dbag']) }}</td>
 					{{ Form::close() }}
 				</tr>
+				@endif
 			@endforeach
 
 		</table>

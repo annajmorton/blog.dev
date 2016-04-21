@@ -100,7 +100,20 @@ class PostsController extends BaseController
 	 */
 	public function update($id)
 	{	
+		// dd(Input::get());
 		$post = Post::find($id);
+		if (Input::has('dbag')) {
+			$img_num = Input::get('img_num');
+			$file = public_path().$post->image_location.$post->image[$img_num];
+			if (File::exists($file)) {
+				File::delete($file);
+			}
+			if (File::exists($file)) {
+				Session::flash('errorMessage', "The file was not delete");	
+			}
+			// return Redirect::action('PostsController@edit',$post->id)->withInput();
+			return Redirect::back()->withInput();
+		}
 		return $this->saveToDB($post); 
 	}
 
@@ -116,33 +129,14 @@ class PostsController extends BaseController
 		$post = Post::find($id);
 		$name = $post->title;
 
-		if ($post->image) {
-			dd(Input::get());
-			$file = public_path().$post->image_location.$post->image;
-
-			if (File::exists($file)) {
-				File::delete($file);
-				$post->image = null;
-			}
-			if (File::exists($file)) {
-				Session::flash('errorMessage', "The file was not delete");	
-			}
-
-			return Redirect::back()->withInput();
-
-		}
 		if ($post) {
 			$post->delete();
-			Session::flash('successMessage', "$name is sucessfully removed from all memory!");
-			
+			Session::flash('successMessage', "$name is sucessfully removed from all memory!");	
 		} else {
 			Session::flash('errorMessage', "Something happened - $name is still here!");
 		}
-
 		return Redirect::action('PostsController@index');
 	}
-
-
 	private function saveToDB($post) 
 	{
 		$validator = Validator::make(Input::all(), Post::$rules);
@@ -162,6 +156,9 @@ class PostsController extends BaseController
 	  
 	    	$files = Input::file('image');
 	    	$arr = [];
+	    	if ($post->image) {
+	    		$arr = $post->image;
+	    	}
 
 			foreach ($files as $file) {
 		    	if (!$file->isValid()) {
@@ -177,15 +174,23 @@ class PostsController extends BaseController
 
 			$post->image = $arr;
 	    } 
-
-		// if ($post->image) { 
-		// 	foreach ($post->image as &$file) {
-		//     	$file = public_path().$post->image_location.$post->image;
-		// 	    if (!File::exists($file)) {
-		// 			$file = null;
-		// 	    }
-		// 	}
-		// }
+		if ($post->image) { 
+			$key_check = [];
+			foreach ($post->image as $key=>$image) {
+		    	$file = public_path().$post->image_location.$image;
+			    if (!File::exists($file)) {
+					array_push($key_check,$key);
+			    }
+			}
+			foreach ($key_check as $delete) {
+				$arr = $post->image;
+				array_splice($arr, $delete,1);
+				$post->image = $arr;
+			}
+			if (empty($post->image)) {
+				$post->image = NULL;
+			}
+		}
 
 	    $post->user_id = User::first()->id;
 		$post->save();
