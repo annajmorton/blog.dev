@@ -32,7 +32,6 @@
 	{{$errors->first('image','<p>:message</p>') }}
 
 	{{ Form::submit('save') }}
-	{{ Form::close() }}
 
 	@if(isset($post)&&$post->image)
 		
@@ -45,10 +44,7 @@
 				@if(File::exists(public_path().$post->image_location.$image))
 				<tr>
 					<td>{{ $post->showImg($image) }}</td>
-					{{ Form::open(['action' => ['PostsController@update', $post->id],'method'=>'PUT','files' => true]) }}
-						{{ Form::text('img_num',$key,['value'=> $key]) }}
-						<td>{{ Form::submit('delete image',['class'=>'btn btn-danger','name'=>'dbag']) }}</td>
-					{{ Form::close() }}
+					<td>{{ Form::submit("$key",['class'=>'btn btn-danger','name'=>'dbag']) }}</td>
 				</tr>
 				@endif
 			@endforeach
@@ -56,6 +52,7 @@
 		</table>
 
 	@endif
+	{{ Form::close() }}
 
 @stop 
 

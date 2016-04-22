@@ -26,8 +26,6 @@ Route::get('/whackamole', 'HomeController@showWhack');
 Route::get('/parks','HomeController@showParks');
 Route::get('/calculator','HomeController@showCalc');
 Route::get('/pv','HomeController@showPV');
-Route::delete('/posts{id?}', 'PostsController@imgDelete');
-
 
 Route::get('/login','UsersController@showU');
 Route::post('/login','UsersController@login');

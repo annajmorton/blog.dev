@@ -100,9 +100,9 @@ class PostsController extends BaseController
 	 */
 	public function update($id)
 	{	
-		// dd(Input::get());
+		dd(Input::all());
 		$post = Post::find($id);
-		if (Input::has('dbag')) {
+		if (false) {
 			$img_num = Input::get('img_num');
 			$file = public_path().$post->image_location.$post->image[$img_num];
 			if (File::exists($file)) {
