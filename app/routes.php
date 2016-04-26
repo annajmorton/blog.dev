@@ -33,16 +33,9 @@ Route::get('/logout','UsersController@logout');
 
 Route::get('/test', function() 
 {
-	$query = Input::get('query');
-	return $query;
-	// // $posts = Post::searchPosts($query);
-	// // $posts = Post::with('User')->where('title', 'LIKE', "%$query%")->get();
-	// $posts = DB::table('posts')->where('title', 'LIKE', "%$query%")->or->get();
-	// var_dump($posts);
-	// foreach($posts as $post){
-	// 	echo "Title: $post->title" . "<br>";
-	// 	echo "Body: $post->body" . "<br>";
-	// }
+    $response = Response::make('Bond, James Bond.', 200);
+    $response->setTtl(60);
+    return $response;
 
 });
 

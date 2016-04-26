@@ -15,6 +15,8 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 * @var string
 	 */
 	protected $table = 'users';
+	protected static $ROLEID = ['ADMIN','GUEST'];
+	
 
 	public static $rules = array(
 	    // 'first_name'      => 'required|max:100',
@@ -36,7 +38,14 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	{
 		return $this->hasMany('Post');
 	}
-
+	public function getRoleIdAttribute($value)
+	{
+		return static::$ROLEID[($value-1)];
+	}
+	public function setRoleIdAttribute($value)
+	{
+		$this->attributes['role_id'] = array_search($value,static::$ROLEID)+1;
+	}
 	public function setPasswordAttribute($value)
 	{
 	    $this->attributes['password'] = Hash::make($value);

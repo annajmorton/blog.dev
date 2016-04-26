@@ -4,10 +4,20 @@
 ?>
 
 @extends('layouts.master')
+@section('style')
+	<link rel="stylesheet" type="text/css" href="/css/resumeR2.css">
+	<style type="text/css">
+		img{
+
+			width: 50%;
+		}
+	</style>
+
+@stop
 
 @section('content')
 	<h1>here i am resume</h1>
-	<a href="{{{ action('HomeController@showPortfolio') }}}">checkout my portfolio</a>
-	<br>
-	<a href="{{{ action('HomeController@rollDice', $guess) }}}">rolldice</a>
+	<div id="image">
+		<img src="/img/Resume.png">
+	</div>
 @stop

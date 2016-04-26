@@ -49,6 +49,9 @@
 .wBleft{
 	border-left: white;
 }
+.container-fluid{
+	margin-top: 10px;
+}
 
 /*-------------------------*/
 /*  row positioning        */

@@ -1,7 +1,7 @@
+(function() {
 	"use strict"
 
 	// global vars
-
 		var level = parseInt($("#level").val());
 		var wacks = parseInt($("#wacks").val());
 		var bites = parseInt($("#bites").val());
@@ -10,14 +10,7 @@
 		var gAtorINplay = 0;
 		var dePloyed = 0;
 
-		
-
-		
-
-
 	// functions
-
-
 		function gatorSelect() {
 
 			//i need to fix this to not pick the same gator
@@ -26,20 +19,15 @@
 		};
 
 		function gatorAnimate(gAtor) {	
-
-
 			var Durr = 4000 / parseInt($("#level").val());
 			gAtor.data("status","on");
-
+			gAtor.children('div.weyeB').removeClass("weyeB").addClass("eye eyeB");
+			
 			gAtorINplay++;
-			console.log(gAtorINplay);
-
 			dePloyed++;
-			console.log(dePloyed);
 
 			SomeBodyWatchNme(gAtor);
 
-			
 			gAtor.animate({
 
 				"top" : "45%"
@@ -54,18 +42,15 @@
 
 				if (gAtor.data("status") == "on"){
 
-					console.log("in here");
 					bites = parseInt($("#bites").val());
 					$("#bites").val(++bites);
 
 				}
 			
-
 				gAtor.data("status","off");
 
 				if (gAtorINplay > 0) {
 					gAtorINplay--;
-					console.log(gAtorINplay);
 				}
 				
 
@@ -85,20 +70,14 @@
 		};
 
 		function SomeBodyWatchNme(gAtor) {
-
-			console.log("dont wear the ring");
-
 			gAtor.on("click", function (event) {
-
-				console.log("we made it");
 
 				if (gAtor.data("status") == "on") {
 
 					wacks = parseInt($("#wacks").val());
 					$("#wacks").val(++wacks);
 					gAtor.data("status","onwacked");
-					console.log(gAtor.data("status"));
-
+					gAtor.children('div.eye').removeClass("eye eyeB").addClass("weyeB");
 				} 
 
 			});
@@ -118,7 +97,6 @@
 				while(gAtor.data("status") != "off"){
 
 					gAtor = $("#g" + gatorSelect());
-					console.log("i am stuck");
 				}
 
 			} else {
@@ -162,7 +140,6 @@
 
 					clearInterval(playLoop);
 					$("#level").data("status","off");
-					console.log($("#level").data("status"));
 					 
 				}
 
@@ -174,7 +151,6 @@
 
 			
 			score = parseInt($("#score").val());
-			console.log(score);
 
 			if (score > 0) {
 				
@@ -182,14 +158,14 @@
 
 				if (level < 10) {
 
-					UserMessage("good work\! here comes the next level. are you ready sky captian\?", function () {
+					UserMessage("good work\! here comes the next level - are you ready sky king\?", function () {
 						
 						level++;
 						$("#level").val(level);
 						resetMygators();
 
 						levelPlay(); 
-					}, 5000);
+					}, 4000);
 
 					
 				} else {
@@ -213,7 +189,7 @@
 		
 		function UserMessage(msghtml,fUn,Durr) {
 
-
+			fUn();
 			$(".UserMessage").html(msghtml)
 			$(".UserMessage").animate({
 
@@ -250,7 +226,6 @@
 			},Durr/8, function () {
 
 				$(this).html("");
-				fUn();
 
 			});
 
@@ -262,7 +237,7 @@
 			bites = parseInt($("#bites").val());
 
 			$("#score").val(wacks-bites);
-			console.log($("#score").val());
+			
 
 		};
 
@@ -291,12 +266,8 @@
 		};
 			
 
-
-
 		
 		// Button action
-
-
 		$("#start").on("click", function () {
 
 			// check to makesure the game isn't already started
@@ -306,13 +277,11 @@
 			}
 
 		});
-
 		$("#quit").on("click", function () {
 
 			// end the playloop interval if the quit button is clicked
 			clearInterval(playLoop);
 			
-
 			// let the user know
 			UserMessage("quittEERRrr", resetMyLife, 5000);
 		
@@ -330,22 +299,5 @@
 			$("button").removeClass("flashbutton");
 			$("h1").removeClass("flashhead");
 		});
-
-		// moving gator bits
-		setInterval(function (){
-
-			var move = $("#g" + gatorSelect());
-			console.log(move);
-			console.log(move.children(".noseB"));
-			move.children(".noseB").animate({
-
-				"opacity" : "0"
-
-			}, 200).animate({
-
-				"opacity" : ""
-
-			},200);
-
-		},5000);
+})();
 	

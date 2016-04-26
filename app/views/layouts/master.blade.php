@@ -9,6 +9,7 @@
 		.alert {
 
 			display: initial;
+			width: 100%;
 		}
 		body {
 
@@ -16,16 +17,11 @@
 			font-family: 'Cuprum', sans-serif;
 		}
 		h5.navbar-text.navbar-right{
-
-			color: red;
 			font-family: 'Caesar Dressing', cursive;		
 		}
 	</style>
-
-	{{-- <link href='https://fonts.googleapis.com/css?family=Sue+Ellen+Francisco' rel='stylesheet' type='text/css'> --}}
 	<link href='https://fonts.googleapis.com/css?family=Cuprum' rel='stylesheet' type='text/css'>
   	<link href='https://fonts.googleapis.com/css?family=Caesar+Dressing' rel='stylesheet' type='text/css'>
-
 	@yield('style')
 
 </head>
@@ -54,12 +50,10 @@
 				</button>
 		          <ul class="dropdown-menu">
 		            {{-- <li><a href="{{ action('HomeController@showWelcome') }}">Action</a></li> --}}
-		            <li><a href="#">Another action</a></li>
-		            <li><a href="#">Something else here</a></li>
-		            <li role="separator" class="divider"></li>
-		            <li><a href="#">Separated link</a></li>
-		            <li role="separator" class="divider"></li>
-		            <li><a href="#">One more separated link</a></li>
+		            <li><a href=" {{{ action('HomeController@showWelcome') }}}">home</a></li>
+		            <li><a href=" {{{ action('HomeController@showResume') }}} ">resume</a></li>
+		            <li><a href=" {{{ action('HomeController@showPortfolio') }}} ">portfolio</a></li>
+		            <li><a href=" {{{ action('PostsController@index') }}} ">blog</a></li>
 		          </ul>
 		       	</span></a>
 
@@ -84,6 +78,8 @@
 		@yield('content')
 	</div>
 
+	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 	@yield('script')
 
 	@if(Session::has('successMessage')||Session::has('errorMessage'))
@@ -93,7 +89,6 @@
 			"use strict"
 
 				setTimeout(function(){	
-					console.log('why am i here');
 					var alertmsg = document.getElementsByClassName("alert");
 					// alertmsg[0].hidden = 'true';
 					console.log(alertmsg);

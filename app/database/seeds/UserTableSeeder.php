@@ -10,6 +10,7 @@ class UserTableSeeder extends Seeder
 		$user->email = $_ENV['USER_EMAIL'];
 		$user->password = $_ENV['USER_PASS'];
 		$user->profile_img = '';
+		$user->role_id = 1;
 		$user->save();
 	}
 

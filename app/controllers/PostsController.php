@@ -100,10 +100,9 @@ class PostsController extends BaseController
 	 */
 	public function update($id)
 	{	
-		dd(Input::all());
 		$post = Post::find($id);
-		if (false) {
-			$img_num = Input::get('img_num');
+		if (Input::has('dbag')) {
+			$img_num = Input::get('dbag');
 			$file = public_path().$post->image_location.$post->image[$img_num];
 			if (File::exists($file)) {
 				File::delete($file);
@@ -111,8 +110,7 @@ class PostsController extends BaseController
 			if (File::exists($file)) {
 				Session::flash('errorMessage', "The file was not delete");	
 			}
-			// return Redirect::action('PostsController@edit',$post->id)->withInput();
-			return Redirect::back()->withInput();
+			return Redirect::action('PostsController@edit',$post->id)->withInput();
 		}
 		return $this->saveToDB($post); 
 	}
@@ -182,11 +180,12 @@ class PostsController extends BaseController
 					array_push($key_check,$key);
 			    }
 			}
+			$key_check = array_reverse($key_check);
+			$arr = $post->image;
 			foreach ($key_check as $delete) {
-				$arr = $post->image;
 				array_splice($arr, $delete,1);
-				$post->image = $arr;
 			}
+			$post->image = $arr;
 			if (empty($post->image)) {
 				$post->image = NULL;
 			}

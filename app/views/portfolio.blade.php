@@ -1,13 +1,15 @@
 @extends('layouts.master')
 
-@section('content')
-	<h1>this is the portfolio</h1>
-	<a href="{{{action('HomeController@showSimon')}}}">Simple Simon Game</a>
-	<br>
-	<a href="{{{action('HomeController@showWhack')}}}">Whackamole</a>
-	<br>
-	<a href="{{{action('HomeController@showParks')}}}">Parks</a>
-	<a href="{{{action('HomeController@showCalc')}}}">Calculator</a>
-	<a href="{{{action('HomeController@showPV')}}}">API Sample</a>
+@section('style')
+	<link rel="stylesheet" type="text/css" href="/css/resumeR2.css">
+@stop
 
+@section('content')
+	<h1>portfolio</h1>
+	<ul>
+		<li><a href="{{{action('HomeController@showSimon')}}}">Simple Simon Game</a></li>
+		<li><a href="{{{action('HomeController@showWhack')}}}">WhackyGator</a></li>
+		<li><a href="{{{action('HomeController@showCalc')}}}">Calculator</a></li>
+	</ul>
+		
 @stop

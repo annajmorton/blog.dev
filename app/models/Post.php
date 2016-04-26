@@ -13,10 +13,17 @@ class Post extends BaseModel
 
 	public function getImageAttribute($value)
 	{
+	    if (is_null($value)) {
+
+	    	return $value;
+	    }
 	    return unserialize($value);
 	}
 	public function setImageAttribute($value)
 	{
+		if (is_null($value)) {
+	    	$this->attributes['image'] = $value;
+	    }
 		$this->attributes['image'] = serialize($value);
 	}
 	public function setTitleAttribute($value)

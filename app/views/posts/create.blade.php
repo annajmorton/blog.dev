@@ -6,11 +6,16 @@
 @extends('layouts.master')
 
 @section('style')
+	<link rel="stylesheet" type="text/css" href="/css/twinkle-stars.css">
 	<style type="text/css">
 		img{
 			width: 20%;
 		}
 	</style>
+@stop
+
+@section('twinkle_stars')
+	@parent
 @stop
 
 @section('content')
