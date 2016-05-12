@@ -8,15 +8,17 @@
 	<link rel="stylesheet" type="text/css" href="/css/resumeR2.css">
 	<style type="text/css">
 		img{
-
-			width: 50%;
+			width: 100%;	
+		}
+		#image{
+			display: flex;
+			justify-content:center;
 		}
 	</style>
 
 @stop
 
 @section('content')
-	<h1>here i am resume</h1>
 	<div id="image">
 		<img src="/img/Resume.png">
 	</div>

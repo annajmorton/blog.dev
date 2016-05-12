@@ -1,11 +1,21 @@
 body{
 
 	background-image: url("/img/graph_paper_by_rawen713.jpg");
-    background-color: red;
+	background-size: 100%;
+    background-color: #000066;
     color: black;
 }
-
-
+.navbar-default {
+  border-color: transparent;
+  background-color: transparent;
+}
+h1{
+	font-family: 'Caesar Dressing', cursive;
+	font-size: 5rem;
+}
+h2{
+	font-size: 2rem;	
+}
 
 
 

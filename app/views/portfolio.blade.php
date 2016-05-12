@@ -7,9 +7,9 @@
 @section('content')
 	<h1>portfolio</h1>
 	<ul>
-		<li><a href="{{{action('HomeController@showSimon')}}}">Simple Simon Game</a></li>
-		<li><a href="{{{action('HomeController@showWhack')}}}">WhackyGator</a></li>
-		<li><a href="{{{action('HomeController@showCalc')}}}">Calculator</a></li>
+		<li><a href="{{{action('HomeController@showSimon')}}}"><h2>simple simon game</h2></a></li>
+		<li><a href="{{{action('HomeController@showWhack')}}}"><h2>whackygator</h2></a></li>
+		<li><a href="{{{action('HomeController@showCalc')}}}"><h2>calculator</h2></a></li>
 	</ul>
 		
 @stop

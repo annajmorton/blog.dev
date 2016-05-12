@@ -48,14 +48,13 @@
 				<button type="button" class="navbar-btn navbar-right btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				    Action <span class="caret"></span>
 				</button>
-		          <ul class="dropdown-menu">
-		            {{-- <li><a href="{{ action('HomeController@showWelcome') }}">Action</a></li> --}}
+		          <ul class="pull-right dropdown-menu">
 		            <li><a href=" {{{ action('HomeController@showWelcome') }}}">home</a></li>
 		            <li><a href=" {{{ action('HomeController@showResume') }}} ">resume</a></li>
 		            <li><a href=" {{{ action('HomeController@showPortfolio') }}} ">portfolio</a></li>
 		            <li><a href=" {{{ action('PostsController@index') }}} ">blog</a></li>
 		          </ul>
-		       	</span></a>
+		      
 
 
 				@if (Auth::check())
