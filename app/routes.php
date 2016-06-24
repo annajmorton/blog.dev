@@ -39,6 +39,12 @@ Route::get('/test', function()
 
 });
 
+Route::get('/book', function()
+{
+	return View::make('bible');
+
+});
+
 Route::get('my-posts', function() {
 
 	$user = User::first();
