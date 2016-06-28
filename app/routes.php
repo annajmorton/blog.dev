@@ -45,6 +45,12 @@ Route::get('/book', function()
 
 });
 
+Route::get('/svg', function()
+{
+	return View::make('svg');
+
+});
+
 Route::get('my-posts', function() {
 
 	$user = User::first();

@@ -136,13 +136,25 @@ body{
 				$('#book').turn('next');
 	});
 
-	console.log($('#book'));
-	$('#book').click(function(){
-		$('#book').turn('previous');
+
+	$("#book").click(event, function(){
+		console.log($("#book div:nth-child(6)"));
+		// $(this).find('.turn-page-wrapper').each();
+		console.log($(event));
+		console.log($("#book div:nth-child(6)").hasClass('odd'));
+		// $(this).filter(function(){
+		// 	console.log(this.className.match(/odd/));
+		// 	$('#book').turn('previous');
+		// });
 	});
-	$('#next').click(function(){
-		$('#book').turn('next');
+
+	$('div').click(function(){
+		console.log('i hate my life');
 	});
+	
+	// $('#book').turn('next');
+
+	
 
 </script>
 
