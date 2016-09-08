@@ -1,0 +1,99 @@
+body{
+    background:#333300;
+    background: -webkit-linear-gradient(top, #333300 , #000000); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(top, #333300, #000000); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(top, #333300, #000000); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to top, #333300 , #000000); /* Standard syntax */
+}
+#book{
+    width:1200px;
+    height:800px;
+}
+#book .turn-page{
+    background-color:#EFE6DF;
+}
+#book .cover{
+    background:#333;
+    background-image: url("/img/front.jpg");
+    background-size: cover;
+    back
+
+}
+#book .back.turn-page{
+    background:#333;
+    background-image: url("/img/back.jpg");
+    background-size: cover;
+    back
+
+}
+#book .innercover.turn-page{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    background-image: url("/img/back.jpg");
+    background-size: cover;
+}
+#book .outtercover.turn-page{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-image: url("/img/front.jpg");
+    background-size: cover;
+}
+
+#book .cover h1{
+    color:white;
+    text-align:center;
+    font-size:50px;
+    line-height:500px;
+    margin:0px;
+}
+#book .loader{
+    width:24px;
+    height:24px;
+    display:block;
+    position:absolute;
+    top:238px;
+    left:188px;
+}
+#book .data{
+    text-align:center;
+    font-size:40px;
+    color:#999;
+    line-height:500px;
+}
+#controls{
+    width:800px;
+    text-align:center;
+    margin:20px 0px;
+    font:30px arial;
+}
+#controls input, #controls label{
+    font:30px arial;
+}
+#book .odd{
+    background-image:-webkit-linear-gradient(left, #FFF 95%, #ddd 100%);
+    background-image:-moz-linear-gradient(left, #FFF 95%, #ddd 100%);
+    background-image:-o-linear-gradient(left, #FFF 95%, #ddd 100%);
+    background-image:-ms-linear-gradient(left, #FFF 95%, #ddd 100%);
+}
+#book .even{
+    background-image:-webkit-linear-gradient(right, #FFF 95%, #ddd 100%);
+    background-image:-moz-linear-gradient(right, #FFF 95%, #ddd 100%);
+    background-image:-o-linear-gradient(right, #FFF 95%, #ddd 100%);
+    background-image:-ms-linear-gradient(right, #FFF 95%, #ddd 100%);
+}
+.data{
+    background-image: url("/img/graph_paper_by_rawenLQ.jpg");
+    opacity: 0.5;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#book .shadow,
+#book.shadow{
+  -webkit-box-shadow: 0 4px 10px #666;
+  -moz-box-shadow: 0 4px 10px #666;
+  -ms-box-shadow: 0 4px 10px #666;
+  -o-box-shadow: 0 4px 10px #666;
+  box-shadow: 0 4px 10px #666;
+}

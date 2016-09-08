@@ -16,6 +16,7 @@ Route::get('/', function()
 	return 'my blood hurts';
 });
 
+Route::resource('/ajaxs','AjaxsController');
 Route::resource('/posts','PostsController');
 Route::get('/resume', 'HomeController@showResume');
 Route::get('/portfolio', 'HomeController@showPortfolio');
@@ -26,6 +27,7 @@ Route::get('/whackamole', 'HomeController@showWhack');
 Route::get('/parks','HomeController@showParks');
 Route::get('/calculator','HomeController@showCalc');
 Route::get('/pv','HomeController@showPV');
+
 
 Route::get('/login','UsersController@showU');
 Route::post('/login','UsersController@login');
@@ -41,7 +43,13 @@ Route::get('/test', function()
 
 Route::get('/book', function()
 {
-	return View::make('bible');
+	return View::make('flipbook');
+
+});
+
+Route::get('/book2', function()
+{
+	return View::make('notebook');
 
 });
 
@@ -62,3 +70,8 @@ Route::get('my-posts', function() {
 
 });
 
+Route::get('/restest', function()
+{
+	return View::make('resume2');
+
+});

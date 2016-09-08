@@ -22,12 +22,17 @@ class HomeController extends BaseController {
 
 	public function showPortfolio()
 	{
-		return View::make('portfolio');
+		return View::make('flipbook');
 	}
 
 	public function showResume()
 	{
 		return View::make('resume');
+	}
+
+	public function showResTest()
+	{
+		return View::make('resume2');
 	}
 
 	public function rollDice($guess = null)
