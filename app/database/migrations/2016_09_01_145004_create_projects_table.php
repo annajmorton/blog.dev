@@ -19,6 +19,7 @@ class CreateProjectsTable extends Migration {
             $table->text('body');
 			$table->string('image', 500)->nullable();
 			$table->timestamps();
+			$table->char('tag', 4);
 		});
 	}
 

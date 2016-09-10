@@ -49,7 +49,6 @@
 @stop
 
 @section('script')
-	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script type="text/javascript">
 		"use strict"
 		$(document).on('click','.btn-danger',function(event) {

@@ -1,0 +1,84 @@
+body {
+	background: url('/img/hand_feather.JPG') no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+
+	padding-top: 15px;
+	margin: 0;
+	font-family: 'Caesar Dressing', cursive;
+	color: floralwhite;	
+	background-color: #1a0d00;
+}
+
+.rocks {
+	display: flex;
+	width: 100%;
+	align-items: center;
+}
+
+h1 {
+	font-size: 32px;
+	margin:0;
+}
+.nav-pills li a{
+	
+	background: url('/img/pebbel.jpg') no-repeat;
+	background-size: 100%;	
+	border-radius: 30px;
+
+	box-shadow: -10px -3px 10px #1a0d00, inset 0 0 20px #1a0d00;
+	color: 	#403326;
+
+	margin: 0 10px 10px 10px;
+	font-weight: bold;
+	padding: 20 15 20 15;
+
+}
+.nav-pills li a:hover {
+
+	/*color: white;*/
+	box-shadow: -10px -4px 7px #1a0d00, inset 0 0 20px #1a0d00;
+	text-decoration: underline;
+
+
+}
+div .modal-content{
+    background-image: url("/img/graph_paper_by_rawenLQ.jpg");
+    opacity: 0.90;
+    background-size: 120%;
+    background-repeat: repeat;
+    color: #003300;
+    font-family: 'Sue Ellen Francisco', cursive;
+}
+.modal-header{
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+}
+.modal-title {
+	text-align: center;
+	padding-bottom: 0px;
+	font-weight: bold;
+	text-decoration: underline;
+	font-family: 'Caesar Dressing', cursive;
+}
+.modal-content h4{
+	margin-top: 5%;
+	padding-top: 1%;
+	font-weight: bold;
+	border-bottom: dotted 3px;
+	border-top: dotted 3px;
+}
+.modal-content h5{ 
+	padding-top: 2%;
+	font-weight: bold;
+	text-decoration: underline;
+}
+.col-md-3,.col-md-4{
+	text-align: center;
+}
+.modal-body{
+	padding-top: 0px;
+	margin-top: 0px;
+}

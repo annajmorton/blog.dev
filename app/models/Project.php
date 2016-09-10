@@ -10,10 +10,14 @@ class Project extends BaseModel {
 		if (!file_exists($resume) || !is_readable($resume)) {
 			return false;
 		}
-		$data = file_get_contents($resume);
-		$data = explode(PHP_EOL, $data);
-		array_shift($data);
-		array_shift($data);
+		$handle = fopen($resume, 'r+');
+		$data = [];
+		$i=0;
+		while(!feof($handle)){
+			$data[$i] = fgetcsv($handle);
+			$i++;
+		}
+		fclose($handle);
 		return $data;
 	}
 

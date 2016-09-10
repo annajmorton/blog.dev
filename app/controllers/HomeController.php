@@ -25,53 +25,28 @@ class HomeController extends BaseController {
 		return View::make('flipbook');
 	}
 
-	public function showResume()
-	{
-		return View::make('resume');
-	}
-
-	public function showResTest()
-	{
-		return View::make('resume2');
-	}
-
-	public function rollDice($guess = null)
-	{
-		$rand_num = mt_rand(1,6);
-
-		$data = [
-			'rand_num' => $rand_num,
-			'guess' => $guess,
-
-		];
-
-		return View::make('roll-dice')->with($data);
-		
-
-	}
-
 	public function showSimon()
 	{
-		return View::make('simon_index');
+		return View::make('projects.simon_index');
 	}
 
 	public function showWhack()
 	{
-		return View::make('whack_index');
+		return View::make('projects.whack_index');
 	}
 
 	public function showParks()
 	{
-		return View::make('national_parks');
+		return View::make('projects.national_parks');
 	}
 
 	public function showCalc()
 	{
-		return View::make('Build_a_Calculator');
+		return View::make('projects.Build_a_Calculator');
 	}
 
 	public function showPV()
 	{
-		return View::make('pv');
+		return View::make('projects.pv');
 	}
 }

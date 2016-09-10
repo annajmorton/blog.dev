@@ -1,46 +1,36 @@
 <html>
 <head>
-	  <!-- Add CSRF Token as a meta tag in your head for Angular JS -->
-    <meta name="csrf-token" content="{{{ csrf_token() }}}">
 	<title>master</title>
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 	
-	<style type="text/css">
-		.alert {
 
-			display: initial;
-			width: 100%;
-		}
-		body {
-
-			padding-top: 70px;
-			font-family: 'Cuprum', sans-serif;
-		}
-		h5.navbar-text.navbar-right{
-			font-family: 'Caesar Dressing', cursive;		
-		}
-	</style>
+	{{-- START SITE STYLE --}}
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/master.css">
 	<link href='https://fonts.googleapis.com/css?family=Cuprum' rel='stylesheet' type='text/css'>
   	<link href='https://fonts.googleapis.com/css?family=Caesar+Dressing' rel='stylesheet' type='text/css'>
+  	{{-- END SITE STYLE --}}
 
+
+
+  	{{-- START PAGE STYLE --}}
 	@yield('style')
 
 </head>
 
 <body>
 
-	{{-- success and error messages --}}
+	{{-- START SUCESS AND ERROR MESSAGES --}}
 	@if (Session::has('successMessage'))
 	    <div class="alert alert-success">{{ Session::get('successMessage') }}</div>
 	@endif
 	@if (Session::has('errorMessage'))
 	    <div class="alert alert-danger">{{ Session::get('errorMessage') }}</div>
 	@endif
-	{{-- end of success and error messages --}}
+	{{-- END SUCESS AND ERROR MESSAGES --}}
 
 
 
-	{{-- NAV BAR --}}
+	{{-- START NAV BAR --}}
 	@section('navbar')
 		<nav class="navbar navbar-default navbar-fixed-top">
 			<div class="container-fluid">
@@ -51,12 +41,9 @@
 				</button>
 		          <ul class="pull-right dropdown-menu">
 		            <li><a href=" {{{ action('HomeController@showWelcome') }}}">home</a></li>
-		            <li><a href=" {{{ action('HomeController@showResume') }}} ">resume</a></li>
 		            <li><a href=" {{{ action('HomeController@showPortfolio') }}} ">portfolio</a></li>
 		            <li><a href=" {{{ action('PostsController@index') }}} ">blog</a></li>
 		          </ul>
-		      
-
 
 				@if (Auth::check())
 					{{ Form::open(['action' => ['UsersController@logout'] , 'method'=>'GET']) }}
@@ -74,14 +61,23 @@
 	{{-- END NAV BAR --}}
 
 
+	{{-- START PAGE CONTENT --}}
 	<div class="container-fluid">
 		@yield('content')
 	</div>
+	{{-- END PAGE CONTENT --}}
 
-	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+
+	{{-- START JS SCRIPTS --}}
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 	@yield('script')
+	{{-- END JS SCRIPTS --}}
 
+
+
+	{{-- START SUCESS AND ERROR MESSAGES --}}
 	@if(Session::has('successMessage')||Session::has('errorMessage'))
 		<script type="text/javascript">
 				
@@ -99,6 +95,7 @@
 
 		</script>	
 	@endif 
+	{{-- END SUCESS AND ERROR MESSAGES --}}
 
 </body>
 </html>

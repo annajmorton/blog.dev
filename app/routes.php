@@ -11,16 +11,10 @@
 |
 */
 
-Route::get('/', function()
-{
-	return 'my blood hurts';
-});
 
 Route::resource('/ajaxs','AjaxsController');
 Route::resource('/posts','PostsController');
-Route::get('/resume', 'HomeController@showResume');
 Route::get('/portfolio', 'HomeController@showPortfolio');
-Route::get('/rolldice/{guess?}', 'HomeController@rollDice');
 Route::get('/', 'HomeController@showWelcome');
 Route::get('/simon', 'HomeController@showSimon');
 Route::get('/whackamole', 'HomeController@showWhack');
@@ -32,46 +26,8 @@ Route::get('/pv','HomeController@showPV');
 Route::get('/login','UsersController@showU');
 Route::post('/login','UsersController@login');
 Route::get('/logout','UsersController@logout');
+Route::get('/test',function(){
 
-Route::get('/test', function() 
-{
-    $response = Response::make('Bond, James Bond.', 200);
-    $response->setTtl(60);
-    return $response;
-
+	return var_dump(Project::resume());
 });
 
-Route::get('/book', function()
-{
-	return View::make('flipbook');
-
-});
-
-Route::get('/book2', function()
-{
-	return View::make('notebook');
-
-});
-
-Route::get('/svg', function()
-{
-	return View::make('svg');
-
-});
-
-Route::get('my-posts', function() {
-
-	$user = User::first();
-
-	foreach($user->posts as $post){
-		echo "Title is: $post->title" . "<br>";
-		echo "Body is: $post->body" . "<br>";
-	}
-
-});
-
-Route::get('/restest', function()
-{
-	return View::make('resume2');
-
-});

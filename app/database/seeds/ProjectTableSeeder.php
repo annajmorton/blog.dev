@@ -8,6 +8,9 @@ class ProjectTableSeeder extends Seeder {
 	public function run()
 	{
 		$resume = Project::resume();
+
+		$buildings = 
+		$programs = array_slice($resume, offset)
 		
 
 	}
