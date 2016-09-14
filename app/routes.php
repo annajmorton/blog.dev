@@ -10,7 +10,11 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-
+if($env == 'local') {
+	Debugbar::enable();
+} else {
+	Debugbar::disable();
+}
 
 Route::get('/hajaxs','AjaxsController@hello');
 Route::get('/pajaxs','AjaxsController@portfolio');
