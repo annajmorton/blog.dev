@@ -31,8 +31,4 @@ Route::get('/pv','HomeController@showPV');
 Route::get('/login','UsersController@showU');
 Route::post('/login','UsersController@login');
 Route::get('/logout','UsersController@logout');
-Route::get('/test',function(){
-
-	return var_dump(App::environment());
-});
 
