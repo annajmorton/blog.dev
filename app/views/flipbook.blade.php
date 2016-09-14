@@ -54,6 +54,6 @@
 
 	
 @section('script')
-<script type="text/javascript" src="/js/turn.js/turn.min.js"></script>
+<script type="text/javascript" src="/js/turn/turn.min.js"></script>
 <script type="text/javascript" src='/js/flipbook.js'></script>
 @stop
