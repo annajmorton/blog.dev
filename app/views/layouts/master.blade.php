@@ -4,6 +4,8 @@
 	
 
 	{{-- START SITE STYLE --}}
+	<link rel='shortcut icon' href='/favicon.ico' type='image/x-icon'>
+	<link rel="stylesheet" type="text/css" href="">
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="/css/master.css">
 	<link href='https://fonts.googleapis.com/css?family=Cuprum' rel='stylesheet' type='text/css'>
