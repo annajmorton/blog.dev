@@ -2,86 +2,20 @@
 
 class AjaxsController extends \BaseController {
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
-	public function index()
+	public function hello()
 	{
-		//
+		$resume = Project::resume();
+		return $resume;
 	}
 
-
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
+	public function portfolio()
 	{
-		$test = Project::resume();
-		return $test;
+		$projresume = Project::resume();
+		$projresume = array_merge(array_slice($projresume,40,4),array_slice($projresume,25,7));
+		array_splice($projresume, 1,1);
+		array_splice($projresume, 6,1);
+		$pictures = Project::pictures();
+		return ['projects'=>$projresume,'pics'=>$pictures];
 	}
-
-
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
-	public function store()
-	{
-		
-	}
-
-
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		return "this is the returned projects ajax";
-	}
-
-
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		//
-	}
-
-
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		//
-	}
-
-
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		//
-	}
-
 
 }

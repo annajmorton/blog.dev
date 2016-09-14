@@ -5,6 +5,13 @@
 @extends('layouts.master')
 @section('style')
 	<link rel="stylesheet" type="text/css" href="/css/twinkle-stars.css">
+	<style type="text/css">
+		.modal-content{
+			font-weight: bold;
+			background-color: orange;
+			font-size: 
+		}
+	</style>
 @stop
 @section('twinkle_stars')
 	@parent
@@ -22,6 +29,7 @@
 	<div class="stars"></div>
 		<div class="twinkling">
 			<div class="twinkle_b">
+				
 				<h1>All the Blogs</h1>
 				@foreach ($allPosts as $post)	
 					<a href="{{{ action('PostsController@show', ['id' => $post['attributes']['id']]) }}}"><h3>{{{ $post['attributes']['title'] }}}</h3></a>
@@ -43,7 +51,15 @@
 						<button type="submit">Create a New Post</button>
 					</form>
 				@endif
+				
 			</div>
+		</div>
+		<div style="margin-top:15%;" id="mymodal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+		  <div class="modal-dialog modal-lg">
+		    <div class="modal-content container-fluid" style="text-align:center;">
+		     <h1>Under Construction - The Blog is a work in progress! </h1>
+		    </div>
+		  </div>
 		</div>
 
 @stop
@@ -61,6 +77,7 @@
                 this.form.submit();
             }
 		});
+		$('#mymodal').modal('show');
 
 	</script>
 

@@ -1,10 +1,8 @@
 @extends('layouts.master')
 
 @section('style')
-	
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/css/bootstrap.min.css" integrity="sha384-MIwDKRSSImVFAZCVLtU0LMDdON6KVCrZHyVQQj6e8wIEJkW4tvwqXrbMIya1vriY" crossorigin="anonymous">
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/js/bootstrap.min.js" integrity="sha384-ux8v3A6CPtOTqOzMKiuo3d/DomGaaClxFYdCu2HPMBEkf6x2xiDyJ7gkXU0MWwaD" crossorigin="anonymous"></script>
-	<link href='https://fonts.googleapis.com/css?family=Sue+Ellen+Francisco' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="/css/hello.css">
 @stop
 
@@ -21,7 +19,7 @@
 	</div>
 
 
-	<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	<div class="modal bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 	  <div class="modal-dialog modal-lg">
 	    <div class="modal-content">
 	    <div class="modal-header">
@@ -39,7 +37,7 @@
 	</div>
 	
 	<div hidden>
-		{{ Form::open(array('action' => 'AjaxsController@create','method'=>'GET','id'=>'getresume')); }}
+		{{ Form::open(array('action' => 'AjaxsController@hello','method'=>'GET','id'=>'getresume')); }}
 		{{ Form::token()}}
 		{{ Form::submit('Click Me!'); }}
 		{{ Form::close(); }}

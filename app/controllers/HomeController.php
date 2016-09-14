@@ -24,13 +24,12 @@ class HomeController extends BaseController {
 	{
 		return View::make('flipbook');
 	}
-
-	public function showSimon()
+	public function SimpleSimon()
 	{
 		return View::make('projects.simon_index');
 	}
 
-	public function showWhack()
+	public function Whackygator()
 	{
 		return View::make('projects.whack_index');
 	}

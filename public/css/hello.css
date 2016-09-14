@@ -7,8 +7,6 @@ body {
 
 	padding-top: 15px;
 	margin: 0;
-	font-family: 'Caesar Dressing', cursive;
-	color: floralwhite;	
 	background-color: #1a0d00;
 }
 
@@ -16,6 +14,8 @@ body {
 	display: flex;
 	width: 100%;
 	align-items: center;
+	font-family: 'Caesar Dressing', cursive;
+	color: floralwhite;	
 }
 
 h1 {
@@ -49,8 +49,9 @@ div .modal-content{
     opacity: 0.90;
     background-size: 120%;
     background-repeat: repeat;
-    color: #003300;
-    font-family: 'Sue Ellen Francisco', cursive;
+    color: black;
+    /*font-family: 'Sue Ellen Francisco', cursive;*/
+    font-family: 'Cuprum', sans-serif;
 }
 .modal-header{
 	padding-bottom: 0px;
@@ -61,7 +62,7 @@ div .modal-content{
 	padding-bottom: 0px;
 	font-weight: bold;
 	text-decoration: underline;
-	font-family: 'Caesar Dressing', cursive;
+	/*font-family: 'Caesar Dressing', cursive;*/
 }
 .modal-content h4{
 	margin-top: 5%;

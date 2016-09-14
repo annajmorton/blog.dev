@@ -12,12 +12,13 @@
 */
 
 
-Route::resource('/ajaxs','AjaxsController');
+Route::get('/hajaxs','AjaxsController@hello');
+Route::get('/pajaxs','AjaxsController@portfolio');
 Route::resource('/posts','PostsController');
 Route::get('/portfolio', 'HomeController@showPortfolio');
 Route::get('/', 'HomeController@showWelcome');
-Route::get('/simon', 'HomeController@showSimon');
-Route::get('/whackamole', 'HomeController@showWhack');
+Route::get('/simon', 'HomeController@SimpleSimon');
+Route::get('/whackamole', 'HomeController@Whackygator');
 Route::get('/parks','HomeController@showParks');
 Route::get('/calculator','HomeController@showCalc');
 Route::get('/pv','HomeController@showPV');
