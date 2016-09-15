@@ -169,7 +169,7 @@
 	  		$('#bright').toggleClass('animate');			
 		}, buttime/9);
 		
-		$('#buttmodal').modal('toggle');
+		$('#buttmodal').modal('show');
 		
 		setTimeout(function(){ 
 			rbutt;
@@ -179,7 +179,7 @@
 		setTimeout(function(){ 
 			clearInterval(lbutt);
 			clearInterval(rbutt);
-			$('#buttmodal').modal('toggle');
+			$('#buttmodal').modal('hide');
 		}, buttime);
 
 	});

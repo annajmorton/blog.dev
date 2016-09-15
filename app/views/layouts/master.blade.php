@@ -64,9 +64,9 @@
 
 
 	{{-- START PAGE CONTENT --}}
-	<div class="container-fluid">
+	
 		@yield('content')
-	</div>
+	
 	{{-- END PAGE CONTENT --}}
 
 
