@@ -27,8 +27,7 @@ body{
     text-decoration-color: black;
 }
 #navstuff .nav-pills li a:hover {
-    /*color: white;*/
-    text-decoration-color: #00ffff;
+    background-color:#ccffff;
 }
 
 #navstuff ul li:first-child a{

@@ -172,16 +172,28 @@
 		$('#buttmodal').modal('show');
 		
 		setTimeout(function(){ 
+		 //  	$('a').css({
+			// 	'background-color': '#00ffff'
+			// });
 			rbutt;
 			lbutt;
 		}, (buttime/9));
 		
 		setTimeout(function(){ 
+			// $('a').css({
+			//     'background-color':'transparent'
+			// });
 			clearInterval(lbutt);
 			clearInterval(rbutt);
 			$('#buttmodal').modal('hide');
 		}, buttime);
-
+		
+		$('body').keyup(function(){
+			$('body').css("overflow", "visible");
+		});
+		$('body').keydown(function(){
+			$("body").css("overflow", "hidden");
+		});
 	});
 })();
 
